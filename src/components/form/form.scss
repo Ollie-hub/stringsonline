@@ -1,0 +1,27 @@
+.form-div {
+    display: grid;    
+}
+
+.form-label {
+    color: #fff;
+    padding: 5px;
+}
+
+.form-input {
+    width: 200px;
+    padding: 5px;
+    margin-left: 5px;
+    border: none;
+}
+
+.form-submit {
+    width: 60px;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.error {
+    margin: 5px;
+    color: #fff;
+}
