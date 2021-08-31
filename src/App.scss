@@ -1,0 +1,24 @@
+// Site variables
+$site-background-color: #131313;
+$dark-green: #0A1D1C;
+$light-green: #00F9B6;
+
+// Mixins 
+
+@mixin input-styles {
+  background-color: $dark-green;
+  color: $light-green;
+}
+
+// Site Styling 
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: $site-background-color;
+}

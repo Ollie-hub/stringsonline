@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Browser, Switch, Route, Redirect } from 'react-router-dom';
 import { Navigation } from "./components/nav/Navbar";
 
@@ -16,12 +16,6 @@ function App() {
 
         </Route>
         <Route exact path="/3">
-
-        </Route>
-        <Route exact path="/4">
-
-        </Route>
-        <Route exact path="/5">
 
         </Route>
 
