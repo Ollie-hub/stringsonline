@@ -3,6 +3,7 @@
 ## SASS 
 ### `npm i node-sass@4.14`
 
+## Fontawesome
 ### `npm i --save @fortawesome/fontawesome-svg-core`  
 
 ### ` npm install --save @fortawesome/free-solid-svg-icons`  
