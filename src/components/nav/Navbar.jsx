@@ -1,33 +1,102 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { Logo } from '../../images/Logo.svg'
-import './navbar.scss'
+import React from 'react';
+import "./Navbar.scss";
+import routes from '../route/routes';
+import { NavLink } from 'react-router-dom';
+import { slide as Menu } from "react-burger-menu";
+import headerimg from '../../images/header-bg.png';
+import mail from '../../images/mail-icon.svg';
+import phone from '../../images/phone-icon.svg';
+import basket from '../../images/cart-icon.svg';
+import SearchComponent from '../search/Search';
+import GuitarFetch from '../../helpers/GuitarFetch/GuitarFetch';
+import BassFetch from '../../helpers/BassFetch/BassFetch';
+import OtherFetch from '../../helpers/OtherFetch/OtherFetch';
+import KeyboardFetch from '../../helpers/KeyboardFetch/KeyboardFetch';
+import BrandFetch from '../../helpers/BrandFetch/BrandFetch';
 
 
-export function Navigation() {
+const Li = props => {
+    const { name, exact, path } = props;
 
-  const [open, setOpen] = useState(false);
-  const toggleClass = () => {
-    setOpen(!open);
-  };
+    // Navbar grundform, ud fra routes.js
 
-  return (
-    <nav>
-      <img src={Logo} alt="logo" className="logo"></img>
-      <button onClick={() => toggleClass()} className="hamburger" >
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-      <ul className={`nav-ul ${open === true ? 'show' : ''}`}>
-        <li className="link"><Link to="/forside">Forside</Link></li>
-        <li className="link"><Link to="/2">Salgs- og handelsbetingelser</Link></li>
-        <li className="link"><Link to="/3">Login</Link></li>
-      </ul>
+    return (
+        <li>
+            <NavLink to={path} exact={exact}>
+                {name}
+            </NavLink>
+        </li>
+    );
+}
 
-      <section>
+export default function Navbar(props) {
 
-      </section>
-    </nav >
-  )
+    // Almindelig Navbar
+
+    return (
+        <div className="navpush">
+            <nav className="full-nav">
+                <div className="text-block">
+                    <img className="icons" src={mail} alt="Logo" />
+                    <p className="navtext">SALES@STRINGONLINE.COM</p>
+                    <img className="icons" src={phone} alt="Logo" />
+                    <p className="navtext"> +45 98 12 22 68</p>
+                    <NavLink to="/Cart">
+                        <img className="icons" src={basket} alt="Logo" />
+                    </NavLink>
+                </div>
+                <ul>
+                    <img className="nav-img" src={headerimg} alt="Logo" />
+                    {routes.map((navelement, i) => {
+                        if (!navelement.hidden) {
+                            return (
+                                <Li key={navelement.name}
+                                    {...navelement}
+                                />
+                            );
+                        }
+                    })}
+                    <NavLink to="/Login">
+                        <button className="nav-login">Login</button>
+                    </NavLink>
+                </ul>
+            </nav>
+
+            {/* Indsættelse af søgefunktionen som komponent */}
+
+            <SearchComponent />
+
+
+            {/* Mobil Navbar / react-burger-menu */}
+
+            <div className="burger-nav">
+                <Menu right {...props}>
+                    <nav className="burger-nav">
+                        <ul>
+                            {routes.map((navelement, i) => {
+                                // console.log(navelement);
+                                if (!navelement.hidden) {
+                                    return (
+                                        <div key={i}>
+                                            <Li key={navelement.name}
+                                                {...navelement}
+                                            />
+                                        </div>
+                                    );
+                                }
+                            })}
+                        </ul>
+                    </nav>
+                    <div className="sidebar-move">
+                        <br />
+                        <GuitarFetch />
+                        <BassFetch />
+                        <OtherFetch />
+                        <KeyboardFetch />
+                        <BrandFetch />
+                    </div>
+                </Menu>
+            </div>
+        </div>
+    );
 }
