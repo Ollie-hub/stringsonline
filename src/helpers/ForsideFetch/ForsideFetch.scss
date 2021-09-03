@@ -1,7 +1,7 @@
-@import "../../styles/named_variables.scss";
+@import "../../styles/variables.scss";
 
 .forsidefetchwrap {
-    padding-left: 24%;
+    padding-left: 10%;
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -13,28 +13,30 @@
         color: $main-breadtxt-color;
         padding: 20px;
         font-size: 10pt;
-        display: block;
-        width: 70%;
-
+        width: 80%;
+        height: 80%;
+        margin-bottom: 10%;
+        .productDescription {
+            margin-left: 10%;
+        }
         figure {
             position: relative;
             padding: 20%;
             margin-bottom: 10%;
             width: 60%;
             background-color: $figure-bg-color;
-            margin:0;
+            margin-left:5%;
 
             img {
                 position: absolute;
                 top: 50%; 
                 left: 50%;
-                width: 60%;
+                width: 80%;
                 display: block;
-                margin-left: auto;
-                margin-right: auto;
                 transform: translate(-50%, -50%);
                 max-width: 100%;
                 background:$figure-bg-color;
+                margin-right: 2%;
             }
     }
 
@@ -45,7 +47,7 @@
             color: $button-txt-color;
             border: none;
             border-radius: 5px;
-            margin-top: 2%;
+            margin-top: 5%;
             cursor: pointer;
             outline: none;
             background-color: $button-pink-color;

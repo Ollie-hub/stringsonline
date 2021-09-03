@@ -1,66 +1,121 @@
-.frontpage-nav {
-a {
-  text-decoration: none;
+@import "../../styles/variables.scss";
+
+.center-txt{
+  text-align: center;
+} 
+
+.breadcrumbs {
+  width: 80%;
+  margin: 0 auto;
+  color: green;
+  padding: 5px;
+  text-align: left;
+  border-top: 1px solid  $footer-bg-color;
+  border-bottom: 1px solid $footer-bg-color;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
-nav {
-  font-family: monospace;
+.icons {
+  width: 20px;
+  height: 20px;
 }
 
-ul {
-  background: darkorange;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
+.infoboard {
+  width: 65vw;
+  height: 25vw;
+  background-color: #2C3737;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  margin-left: 25.2%;
+  margin-bottom: 2%;
+
+h2 {
+  text-align:center;
+  padding: 20px;
+  font-weight: normal;
+}
 }
 
-li {
-  color: #fff;
-  background: darkorange;
-  display: block;
-  float: left;
-  padding: 1rem;
-  position: relative;
-  text-decoration: none;
-  transition-duration: 0.5s;
-}
-  
-li a {
-  color: #fff;
+.headerimg {
+  width: 35vw;
+  height: 25vw;
 }
 
-li:hover,
-li:focus-within {
-  background: red;
+.headertxt {
+  font-size: 1vw;
+}
+
+.linewrap {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+  border-top: 1px solid  grey;
+  border-bottom: 1px solid grey;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.readmore {
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 8vw;
+  height: 3vw;
+  font-size: 1.2vw;
+  border-radius: 25px;
+  background-color: $green-main-color;
   cursor: pointer;
+  border: none;
 }
 
-li:focus-within a {
-  outline: none;
+.forside-header {
+  padding-left: 25%;
+  margin-bottom: 3%;
+  color: #fff;
+  font-size: 2rem;
 }
 
-ul li ul {
-  background: orange;
-  visibility: hidden;
-  opacity: 0;
-  min-width: 5rem;
-  position: absolute;
-  transition: all 0.5s ease;
-  margin-top: 1rem;
-  left: 0;
-  display: none;
-}
 
-ul li:hover > ul,
-ul li:focus-within > ul,
-ul li ul:hover,
-ul li ul:focus {
-  visibility: visible;
-  opacity: 1;
-  display: block
-}
+@media screen and (max-width: 992px) {
 
-ul li ul li {
-  clear: both;
-  width: 100%;
-}}
+.infoboard {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 70vw;
+  height: 60vw;
+  margin: 0 auto;
+
+    h2 {
+      padding-top: 1%;
+      padding-bottom: 1%;
+      font-size: 3.5vw;
+    }
+
+    h3 {
+      font-size: 2vw;
+      margin-bottom: -4%;
+    }
+  }
+
+  .forside-header {
+    text-align: center;
+    padding: 0;
+    margin-top: 3%;
+  }
+
+  .readmore {
+    width: 12vw;
+    height: 4.5vw;
+    margin-top: 4% !important;
+    margin-bottom: 4% !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .headerimg{
+    width: 70vw;
+    height: 25vw;
+  }
+}

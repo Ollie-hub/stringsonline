@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../components/SideMenu/SideMenu.scss';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 export default function KeyboardFetch(props) {
     const [apiData, setApiData] = useState(null);
@@ -29,9 +29,11 @@ export default function KeyboardFetch(props) {
             {
                 apiData && apiData.length > 0 && apiData.map((item, i) =>
                     <section className="extra-push" key={item.id}>
-                        <Link to={`/guitarpage/${item.id}`}>
-                            <ul><li>{item.title}</li></ul>
-                        </Link>
+                        <Router>
+                            <Link to={`/guitarpage/${item.id}`}>
+                                <ul><li>{item.title}</li></ul>
+                            </Link>
+                        </Router>
                     </section>
                 )
             }

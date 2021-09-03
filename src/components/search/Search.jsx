@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavbarSmall from '../nav/';
-import "./SearchComponent.scss";
+import NavbarSmall from '../nav/NavbarSmall';
+import "./search.scss";
 import { Link } from 'react-router-dom';
 
 export default function SearchComment(props) {

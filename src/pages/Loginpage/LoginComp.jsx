@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../Auth/Auth";
-import NavbarSmall from '../NavbarSmall/NavbarSmall';
+import useAuth from "./AuthProvider";
+import NavbarSmall from '../../components/nav/NavbarSmall';
 import './LoginComp.scss';
 
 

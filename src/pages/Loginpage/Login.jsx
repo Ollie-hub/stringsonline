@@ -1,7 +1,7 @@
 import React from "react";
 import useAuth from "./AuthProvider";
-import LoginComp from '../../LoginComp/LoginComp';
-import './Login.scss';
+import LoginComp from './LoginComp';
+import './login.scss';
 
 const Login = (props) => {
 

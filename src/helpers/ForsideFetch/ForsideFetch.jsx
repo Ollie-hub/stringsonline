@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../components/SideMenu/SideMenu.scss';
 import './ForsideFetch.scss';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 export default function ForsideFetch(props) {
 
@@ -108,9 +108,12 @@ export default function ForsideFetch(props) {
                                 <h3 className="grid-header">{item.name}</h3>
                                 <p>{item.description_short}
 
-                                    <Link to={`/specificproduct/${item.id}`}>
-                                        <li className="direct-link" id={item.id} onClick={(e) => { getItemId(e.target.id) }}>Læs Mere!</li>
-                                    </Link></p>
+                                    <Router>
+                                        <Link to={`/specificproduct/${item.id}`}>
+                                            <li className="direct-link" id={item.id} onClick={(e) => { getItemId(e.target.id) }}>Læs Mere!</li>
+                                        </Link>
+                                    </Router>
+                                </p>
 
                                 {/* If else  statement der checker om en vare er på tilbud, og hvis den er displayer tilbudsprisen */}
 

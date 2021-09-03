@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../components/SideMenu/SideMenu.scss';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 export default function BassFetch(props) {
     const [apiData, setApiData] = useState(null);
@@ -21,17 +21,17 @@ export default function BassFetch(props) {
         getCategory()
     }, [])
 
-    // Return mapper igennem subgroups i productgroups array, kreerer links ud fra disse, der fører til de specifikke elementers ID (fetcher deres info ud fra deres ID)
+    // Return mapper igennem subgroups i productgroups array, laver links ud fra disse, der fører til de specifikke elementers ID (fetcher deres info ud fra deres ID)
     return (
         <div>
             {
                 apiData && apiData.length > 0 && apiData.map((item, i) =>
                     <section className="extra-push" key={item.id}>
-
-                        <Link to={`/guitarpage/${item.id}`}>
-                            <ul><li>{item.title}</li></ul>
-                        </Link>
-
+                        <Router>
+                            <Link to={`/guitarpage/${item.id}`}>
+                                <ul><li>{item.title}</li></ul>
+                            </Link>
+                        </Router>
                     </section>
                 )
             }
